@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TXIntent",
+  "type": "object",
+  "required": [
+    "vault_id",
+    "transaction_type",
+    "program_id",
+    "actions",
+    "created_at",
+    "client_hash",
+    "intent_hash_algorithm",
+    "execution_policy"
+  ],
+  "properties": {
+    "vault_id": {
+      "type": "string",
+      "description": "PublicKey base58 of the vault executing this transaction"
+    },
+    "transaction_type": {
+      "type": "string",
+      "enum": [
+        "transfer",
+        "program_upgrade",
+        "signer_rotation",
+        "config_change",
+        "custom"
+      ],
+      "description": "Semantic type of transaction"
+    },
+    "program_id": {
+      "type": "string",
+      "description": "Target program address"
+    },
+    "actions": {
+      "type": "array",
+      "description": "One or more semantic actions",
+      "items": {
+        "type": "object",
+        "required": ["type", "params"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "transfer",
+              "invoke",
+              "upgrade",
+              "add_signer",
+              "remove_signer",
+              "set_config"
+            ]
+          },
+          "params": {
+            "type": "object",
+            "description": "Action-specific parameters"
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "client_hash": {
+      "type": "string",
+      "description": "SHA256 hash of the frontend or CLI used to create/display this tx"
+    },
+    "intent_hash_algorithm": {
+      "type": "string",
+      "enum": ["sha256"],
+      "default": "sha256"
+    },
+    "execution_policy": {
+      "type": "object",
+      "required": ["min_signers", "timelock", "manual_execution_required"],
+      "properties": {
+        "min_signers": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "timelock": {
+          "type": "integer",
+          "description": "Delay in seconds after approval before tx can be executed"
+        },
+        "manual_execution_required": {
+          "type": "boolean",
+          "description": "Prevent auto-execution after final approval"
+        }
+      }
+    },
+    "oob_metadata": {
+      "type": "object",
+      "description": "Out-of-band data for printing, QR, NFC, simulation",
+      "properties": {
+        "human_summary": { "type": "string" },
+        "ipfs_link": { "type": "string" },
+        "qr_hash": { "type": "string" }
+      }
+    }
+  }
+}

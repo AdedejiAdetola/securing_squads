@@ -1,0 +1,26 @@
+CHAPTER 1 – Understanding the Problem
+- 1.1.1 squads_lifecycle.md – Protocol transaction lifecycle
+- 1.1.2 signer_roles.md – Signer roles and assumptions
+- 1.2.1 incident_case_studies.md – Real-world exploit reports
+- 1.2.2 lesson_learned.md – Abstracted insights and systemic gaps
+
+CHAPTER 2 – Threat Modeling
+- 2.1.1 Threat Modeling using STRIDE.md – Attack surface breakdown
+- 2.1.2 DREAD Risk Scoring.md – Risk impact, exploitability
+- 2.2.1 novel_attacks.md – Custom attack design (10+ unique threats)
+
+CHAPTER 3 – Secure Signing Principles
+- 3.1.1 secure_signing_principles.md – Codified rules + mitigations
+- 3.1.2 design_goals.md – UX/security tradeoffs, signer principles
+- 3.2.1 tx_intent_specification.md – Formal spec (JSON intent format)
+- 3.2.2 txintent_spec.json – Canonical schema
+- intent_examples/transfer_usdc.json – Sample txintent
+- intent_examples/intent_hashing.py – Canonical hasher (informational)
+
+CHAPTER 4 – CLI Tooling Specification
+- 4.1.1 cli_architectural_specification.md – Signing flow + policy logic
+
+CHAPTER 5 – Project Overview and References
+- 5.1.1 final_project_structure.md – Folder structure guide
+- 5.1.2 project_manifest.txt – File list and purpose
+- 5.1.3 README.md – One-page system summary

@@ -1,0 +1,29 @@
+
+{
+  "vault_id": "VaulT123...",
+  "transaction_type": "transfer",
+  "program_id": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+  "actions": [
+    {
+      "type": "transfer",
+      "params": {
+        "token": "USDC",
+        "amount": "50000000",
+        "destination": "Dest111...xyz"
+      }
+    }
+  ],
+  "created_at": "2025-04-17T15:12:32Z",
+  "client_hash": "2b5b1a...d89c",
+  "intent_hash_algorithm": "sha256",
+  "execution_policy": {
+    "min_signers": 3,
+    "timelock": 300,
+    "manual_execution_required": true
+  },
+  "oob_metadata": {
+    "human_summary": "Transfer 50 USDC to treasury",
+    "ipfs_link": "ipfs://QmZABC...",
+    "qr_hash": "0xdeadbeef123..."
+  }
+}
